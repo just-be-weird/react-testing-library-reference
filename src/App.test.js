@@ -27,3 +27,17 @@ test('Initial conditions', () => {
   const checkbox = screen.getByRole('checkbox', {});
   expect(checkbox).not.toBeChecked();
 });
+
+test('Checkbox toggles enable or disables the button', () => {
+  render(<App/>);
+
+  const button = screen.getByRole('button', {});
+  // On click, checkbox gets checked and button is disabled
+  const checkbox = screen.getByRole('checkbox', {});
+  fireEvent.click(checkbox);
+  expect(button).toBeDisabled();
+
+  // On click, checkbox gets unchecked and the button is enabled
+  fireEvent.click(checkbox);
+  expect(button).toBeEnabled();
+});
