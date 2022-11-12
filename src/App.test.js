@@ -3,25 +3,25 @@ import App, {camelCaseToCapitalLettersWithSpaces} from './App';
 
 test('Button has correct initial color', () => {
   render(<App/>);
-  const linkElement = screen.getByRole('button', {name: /change to blue/i});
-  expect(linkElement).toHaveStyle({backgroundColor: 'red'});
+  const linkElement = screen.getByRole('button', {name: /change to midnight blue/i});
+  expect(linkElement).toHaveStyle({backgroundColor: 'MediumVioletRed'});
 });
 
 test('Button has correct initial text', () => {
   render(<App/>);
   // Find the element
-  const colorButton = screen.getByRole('button', {name: /change to blue/i});
+  const colorButton = screen.getByRole('button', {name: /change to midnight blue/i});
   // click the button
   fireEvent.click(colorButton)
-  expect(colorButton).toHaveStyle({backgroundColor: 'blue'});
-  expect(colorButton).toHaveTextContent(/change to red/i);
+  expect(colorButton).toHaveStyle({backgroundColor: 'MidnightBlue'});
+  expect(colorButton).toHaveTextContent(/change to medium violet red/i);
 });
 
 test('Initial conditions', () => {
   // Button starts out enabled
   render(<App/>);
 
-  const colorButton = screen.getByRole('button', {name: /change to blue/i});
+  const colorButton = screen.getByRole('button', {name: /change to midnight blue/i});
   expect(colorButton).toBeEnabled();
 
   const checkbox = screen.getByRole('checkbox', {});
@@ -55,12 +55,12 @@ test('Checkbox toggle enable or disables the button with color change for disabl
   // On click, checkbox gets unchecked and the button is enabled
   fireEvent.click(checkbox);
   expect(button).toBeEnabled();
-  expect(button).toHaveStyle({backgroundColor: 'red'});
+  expect(button).toHaveStyle({backgroundColor: 'MediumVioletRed'});
 });
 
 describe('spaces before camel-case capital letters', ()=> {
   test('it works for no inner capital letter', ()=> {
-    expect(camelCaseToCapitalLettersWithSpaces('Red')).toBe('Red');
+    expect(camelCaseToCapitalLettersWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
   });
   test('it works for one inner capital letter', ()=> {
     expect(camelCaseToCapitalLettersWithSpaces('MidnightBlue')).toBe('Midnight Blue');

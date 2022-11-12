@@ -7,13 +7,13 @@ export const camelCaseToCapitalLettersWithSpaces = (colorName) => {
 }
 
 function App() {
-  const [color, setColor] = useState('red');
+  const [color, setColor] = useState('MediumVioletRed');
   const [checked, setChecked] = useState(false);
   return (
     <div className="App">
       <button disabled={checked} style={{backgroundColor: checked ? 'gray' : color}}
-              onClick={() => setColor(color === 'red' ? 'blue' : 'red')}>Change to
-        {' '}{color === 'red' ? 'blue' : 'red'}
+              onClick={() => setColor(color === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed')}>Change to
+        {' '}{color === 'MediumVioletRed' ? 'midnight blue' : 'medium violet red'}
       </button>
       <input
         aria-checked={checked}
