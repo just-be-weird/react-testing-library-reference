@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import App, { camelCaseToCapitalLettersWithSpaces } from "./App";
+import App, { camelCaseToCapitalLettersWithSpaces } from "../App";
 
 test("Button has correct initial color", () => {
   render(<App />);
