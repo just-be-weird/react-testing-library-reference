@@ -2,6 +2,10 @@
 import './App.css';
 import {useState} from "react";
 
+export const camelCaseToCapitalLettersWithSpaces = (colorName) => {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1');
+}
+
 function App() {
   const [color, setColor] = useState('red');
   const [checked, setChecked] = useState(false);

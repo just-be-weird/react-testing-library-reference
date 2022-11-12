@@ -1,5 +1,5 @@
 import {fireEvent, render, screen} from '@testing-library/react';
-import App from './App';
+import App, {camelCaseToCapitalLettersWithSpaces} from './App';
 
 test('Button has correct initial color', () => {
   render(<App/>);
@@ -57,3 +57,15 @@ test('Checkbox toggle enable or disables the button with color change for disabl
   expect(button).toBeEnabled();
   expect(button).toHaveStyle({backgroundColor: 'red'});
 });
+
+describe('spaces before camel-case capital letters', ()=> {
+  test('it works for no inner capital letter', ()=> {
+    expect(camelCaseToCapitalLettersWithSpaces('Red')).toBe('Red');
+  });
+  test('it works for one inner capital letter', ()=> {
+    expect(camelCaseToCapitalLettersWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+  });
+  test('it works for multiple inner capital letters', ()=> {
+    expect(camelCaseToCapitalLettersWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
+  });
+})
