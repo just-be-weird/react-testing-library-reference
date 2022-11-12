@@ -7,9 +7,9 @@ function App() {
   const [checked, setChecked] = useState(false);
   return (
     <div className="App">
-      <button disabled={checked} style={{backgroundColor: color}}
+      <button disabled={checked} style={{backgroundColor: checked ? 'gray' : color}}
               onClick={() => setColor(color === 'red' ? 'blue' : 'red')}>Change to
-        {color === 'red' ? 'Change to blue' : 'Change to red'}
+        {' '}{color === 'red' ? 'blue' : 'red'}
       </button>
       <input
         aria-checked={checked}
