@@ -33,7 +33,7 @@ test('Checkbox toggles enable or disables the button', () => {
 
   const button = screen.getByRole('button', {});
   // On click, checkbox gets checked and button is disabled
-  const checkbox = screen.getByRole('checkbox', {});
+  const checkbox = screen.getByRole('checkbox', {name: /disable the button/i});
   fireEvent.click(checkbox);
   expect(button).toBeDisabled();
 
