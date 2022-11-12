@@ -9,6 +9,7 @@ function App() {
       <button style={{backgroundColor: color}} onClick={() => setColor(color === 'red' ? 'blue' : 'red')}>Change to
         {color === 'red' ? 'Change to blue' : 'Change to red'}
       </button>
+      <input type="checkbox"/>
     </div>
   );
 }
