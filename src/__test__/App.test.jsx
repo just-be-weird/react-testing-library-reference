@@ -3,9 +3,11 @@ import App, { camelCaseToCapitalLettersWithSpaces } from "../App";
 
 test("Button has correct initial color", () => {
   render(<App />);
+  // Find the element with a role of button and text
   const linkElement = screen.getByRole("button", {
     name: /change to midnight blue/i,
   });
+  // Expect the background color to be red
   expect(linkElement).toHaveStyle({ backgroundColor: "MediumVioletRed" });
 });
 
@@ -25,12 +27,16 @@ test("Initial conditions", () => {
   // Button starts out enabled
   render(<App />);
 
+  // Find the element
   const colorButton = screen.getByRole("button", {
     name: /change to midnight blue/i,
   });
+  // checks if the checkbox is enabled
   expect(colorButton).toBeEnabled();
 
   const checkbox = screen.getByRole("checkbox", {});
+  // It starts out as unchecked
+  // PS is acting as negation for our assertions
   expect(checkbox).not.toBeChecked();
 });
 
